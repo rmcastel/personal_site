@@ -1,0 +1,29 @@
+[[main]]
+  name = "About"
+  pageRef = "about"
+  weight = 10
+
+[[main]]
+  name = "Resume"
+  url = "/Castellanos.pdf"
+  weight = 20
+
+[[main]]
+  name = "Blog"
+  pageRef = "posts"
+  weight = 30
+
+[[main]]
+  name = "Calculator"
+  pageRef = "calculator"
+  weight = 40
+
+[[main]]
+  name = "Projects"
+  pageRef = "projects"
+  weight = 50
+
+[[main]]
+  name = "Mood"
+  pageRef = "mood"
+  weight = 60

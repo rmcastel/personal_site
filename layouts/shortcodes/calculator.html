@@ -1,0 +1,168 @@
+{{ $csv := resources.Get "data/csv/cpi.csv" | transform.Unmarshal }}
+{{ $rows := after 1 $csv }}
+
+{{ if $rows }}
+<div style="
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border: 1px solid var(--color-border-tertiary, #e5e7eb);
+  border-radius: 12px;
+">
+  <div style="margin-bottom: 1.5rem;">
+    <label style="
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    ">Dollar Amount ($)</label>
+    <input
+      id="dollar_amount"
+      type="number"
+      placeholder="Enter a dollar amount ($)"
+      style="
+        width: 100%;
+        padding: 0.65rem 1rem;
+        border: 1px solid var(--color-border-tertiary, #e5e7eb);
+        border-radius: 8px;
+        font-size: 1rem;
+        background: transparent;
+        color: inherit;
+        box-sizing: border-box;
+      "
+    />
+  </div>
+
+  <div style="margin-bottom: 1.5rem;">
+    <label style="
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    ">First year</label>
+    <select
+      id="year1"
+      style="
+        width: 100%;
+        padding: 0.65rem 1rem;
+        border: 1px solid var(--color-border-tertiary, #e5e7eb);
+        border-radius: 8px;
+        font-size: 1rem;
+        background: transparent;
+        color: inherit;
+        box-sizing: border-box;
+        cursor: pointer;
+      "
+    >
+      <option value="">Select a year</option>
+      {{ range $rows }}
+        <option value="{{ index . 1 }}">{{ index . 0 }}</option>
+      {{ end }}
+    </select>
+  </div>
+
+  <div style="margin-bottom: 1.5rem;">
+    <label style="
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    ">Second year</label>
+    <select
+      id="year2"
+      style="
+        width: 100%;
+        padding: 0.65rem 1rem;
+        border: 1px solid var(--color-border-tertiary, #e5e7eb);
+        border-radius: 8px;
+        font-size: 1rem;
+        background: transparent;
+        color: inherit;
+        box-sizing: border-box;
+        cursor: pointer;
+      "
+    >
+      <option value="">Select a year</option>
+      {{ range collections.Reverse $rows }}
+        <option value="{{ index . 1 }}">{{ index . 0 }}</option>
+      {{ end }}
+    </select>
+  </div>
+
+  <button
+    onclick="calculateDiff()"
+    style="
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--color-primary, #0d9488);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+    "
+  >Calculate Difference</button>
+
+  <div id="result" style="
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    display: none;
+  "></div>
+</div>
+
+<script>
+function calculateDiff() {
+  const dollarSelect = document.getElementById('dollar_amount');
+  const year1Select = document.getElementById('year1');
+  const year2Select = document.getElementById('year2');
+  const result = document.getElementById('result');
+
+  const cpi1 = parseFloat(year1Select.value);
+  const cpi2 = parseFloat(year2Select.value);
+  const label1 = year1Select.options[year1Select.selectedIndex].text;
+  const label2 = year2Select.options[year2Select.selectedIndex].text;
+
+  if (!dollarSelect.value) {
+    result.style.display = 'block';
+    result.style.background = 'var(--color-background-danger, #fee2e2)';
+    result.style.color = 'var(--color-text-danger, #dc2626)';
+    result.textContent = 'Please enter a dollar amount.';
+    return;
+  }
+
+  if (!year1Select.value || !year2Select.value) {
+    result.style.display = 'block';
+    result.style.background = 'var(--color-background-danger, #fee2e2)';
+    result.style.color = 'var(--color-text-danger, #dc2626)';
+    result.textContent = 'Please select two years.';
+    return;
+  }
+
+  if (year1Select.value === year2Select.value) {
+    result.style.display = 'block';
+    result.style.background = 'var(--color-background-danger, #fee2e2)';
+    result.style.color = 'var(--color-text-danger, #dc2626)';
+    result.textContent = 'Please select two different years.';
+    return;
+  }
+
+  const new_price = (dollarSelect.value * (cpi2 / cpi1)).toFixed(2);
+  const diff = (cpi2 - cpi1).toFixed(2);
+  const pct = (((cpi2 - cpi1) / cpi1) * 100).toFixed(2);
+  const direction = diff >= 0 ? 'increased' : 'decreased';
+
+  // Change your innerHTML line to use these:
+  const displayDollar = parseFloat(dollarSelect.value).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+  const displayPrice = parseFloat(new_price).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+
+  result.style.display = 'block';
+  result.style.background = 'var(--color-background-success, #dcfce7)';
+  result.style.color = 'var(--color-text-success, #16a34a)';
+  result.innerHTML = `${displayDollar} in ${label1} is equivalent to ${displayPrice} in ${label2}`;
+}
+</script>
+{{ else }}
+<p>Could not load CPI data.</p>
+{{ end }}

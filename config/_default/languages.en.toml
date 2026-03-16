@@ -1,0 +1,9 @@
+languageCode = "en"
+languageName = "English"
+weight = 1
+
+title = "Richy Castellanos"
+
+[params]
+  dateFormat = "2 January 2006"
+  description = "Designer, developer, and whatever else you want to say."
