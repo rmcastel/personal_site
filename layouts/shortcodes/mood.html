@@ -1,4 +1,5 @@
-{{ $images := resources.Match "img/mood/*" }}
+{{ $images := resources.Match "img/mood/*.{jpg,jpeg,png,gif,webp}" }}
+{{ $sorted := sort $images "Name" "asc" }}
 <div style="
   display: flex;
   flex-direction: column;
@@ -6,7 +7,7 @@
   gap: 2rem;
   margin-top: 2rem;
 ">
-  {{ range $images }}
+  {{ range $sorted }}
   <img
     src="{{ .RelPermalink }}"
     style="
@@ -19,4 +20,3 @@
   />
   {{ end }}
 </div>
-
