@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "Richy Castellanos"
 date: 2026-03-15
 draft: false
 showDate: false
