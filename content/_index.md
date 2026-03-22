@@ -1,4 +1,4 @@
 ---
-title: "Your Name"
-description: "Designer, developer, and whatever else."
+title: "Richy Castellanos"
+description: "Data Scientist, developer, and a guy that spends too much time thinking about clothes."
 ---
