@@ -5,25 +5,20 @@
 
 [[main]]
   name = "Resume"
-  url = "/Castellanos.pdf"
+  url = "/castellanos.pdf"
   weight = 20
 
 [[main]]
-  name = "Blog"
+  name = "Posts"
   pageRef = "posts"
   weight = 30
 
 [[main]]
-  name = "Calculator"
+  name = "CPI Calculator"
   pageRef = "calculator"
   weight = 40
 
 [[main]]
-  name = "Projects"
-  pageRef = "projects"
-  weight = 50
-
-[[main]]
   name = "Mood"
   pageRef = "mood"
-  weight = 60
+  weight = 50

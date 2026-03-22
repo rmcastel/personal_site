@@ -1,5 +1,5 @@
 {{ $images := resources.Match "img/mood/*.{jpg,jpeg,png,gif,webp}" }}
-{{ $sorted := sort $images "Name" "asc" }}
+{{ $sorted := sort $images "Name" "desc" }}
 <div style="
   display: flex;
   flex-direction: column;

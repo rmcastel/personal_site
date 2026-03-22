@@ -1,4 +1,4 @@
 ---
-title: "Blog"
+title: "Posts"
 date: 2026-03-15
 ---
