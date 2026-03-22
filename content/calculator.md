@@ -15,6 +15,6 @@ $$
 \text{Price In Second Year} = \frac{\text{Second Year CPI}}{\text{First Year CPI}} * \text{Year 1 Amount (\$)}
 $$
 
-><small>Fun fact, In seasnon 7 episode 7, Joan’s 5% share of the agency worth around $1.5M at the time would be worth well over $14M today.<small>
+><small>Fun fact, In seasnon 7 episode 7, Joan’s 5% share of the agency worth around $1.5M at the time would be worth well over $14M today.</small>
 
 {{< calculator >}}

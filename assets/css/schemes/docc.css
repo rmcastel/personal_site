@@ -1,0 +1,39 @@
+:root {
+  --color-neutral: 255, 255, 255;
+  /* Slate Color - #1b3644 as the mid point */
+  --color-neutral-50: 248, 250, 252;
+  --color-neutral-100: 241, 245, 249;
+  --color-neutral-200: 226, 232, 240;
+  --color-neutral-300: 203, 213, 225;
+  --color-neutral-400: 148, 163, 184;
+  --color-neutral-500: 100, 116, 139;
+  --color-neutral-600: 71, 85, 105;
+  --color-neutral-700: 51, 65, 85;
+  --color-neutral-800: 30, 41, 59;
+  --color-neutral-900: 15, 23, 42;
+  --color-neutral-950: 2, 6, 23;
+  /* Pale Raw Umber - #5e4017 as the mid point */
+  --color-primary-50: 250, 243, 232;
+  --color-primary-100: 240, 224, 195;
+  --color-primary-200: 224, 198, 155;
+  --color-primary-300: 204, 168, 110;
+  --color-primary-400: 180, 138, 75;
+  --color-primary-500: 148, 105, 45;
+  --color-primary-600: 94, 64, 23;
+  --color-primary-700: 72, 48, 16;
+  --color-primary-800: 50, 33, 10;
+  --color-primary-900: 30, 18, 5;
+  --color-primary-950: 15, 9, 2;
+    /* Ochraceous Salmon - #d99e73 as the mid point */
+  --color-secondary-50: 253, 247, 240;
+  --color-secondary-100: 250, 237, 222;
+  --color-secondary-200: 244, 220, 195;
+  --color-secondary-300: 238, 202, 165;
+  --color-secondary-400: 230, 181, 140;
+  --color-secondary-500: 217, 158, 115;
+  --color-secondary-600: 196, 130, 85;
+  --color-secondary-700: 163, 100, 58;
+  --color-secondary-800: 120, 70, 35;
+  --color-secondary-900: 75, 42, 18;
+  --color-secondary-950: 38, 20, 8;
+}
