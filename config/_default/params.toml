@@ -98,5 +98,5 @@ fingerprintAlgorithm = "sha256"
     { linkedin = "https://www.linkedin.com/in/richy-castellanos/" },
     { github = "https://github.com/rmcastel/" },
     { instagram = "https://www.instagram.com/c0wboy_pants/"},
-    { email = "mailto:rmcastellanos1017@gmail.com" }
+    { email = "mailto:contact@cowboypants.studio" }
   ]
